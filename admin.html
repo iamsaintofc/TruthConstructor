@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель — ДомСтрой</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">Дом<span>Строй</span></a>
+      <nav class="nav">
+        <a href="index.html">На главную</a>
+        <button class="btn btn--link" id="logoutBtn">Выйти</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-head">
+      <h1>Админ-панель</h1>
+      <p class="muted">Управление проектами, этапами, фото, платежами, заявками и калькулятором.</p>
+    </div>
+
+    <div class="tabs card">
+      <button class="tab active" data-tab="stats" type="button">Статистика</button>
+      <button class="tab" data-tab="projects" type="button">Проекты</button>
+      <button class="tab" data-tab="leads" type="button">Заявки</button>
+      <button class="tab" data-tab="calc" type="button">Калькулятор</button>
+    </div>
+
+    <!-- Статистика -->
+    <section class="tab-panel" id="panel-stats">
+      <div class="stats">
+        <div class="card stat"><span class="stat__num" id="statProjects">—</span><span class="stat__label">Проектов</span></div>
+        <div class="card stat"><span class="stat__num" id="statActive">—</span><span class="stat__label">В работе</span></div>
+        <div class="card stat"><span class="stat__num" id="statLeads">—</span><span class="stat__label">Заявок</span></div>
+        <div class="card stat"><span class="stat__num" id="statPaid">—</span><span class="stat__label">Оплачено всего</span></div>
+      </div>
+    </section>
+
+    <!-- Проекты -->
+    <section class="tab-panel" id="panel-projects" hidden>
+      <div class="panel-head">
+        <h2>Проекты</h2>
+        <button class="btn btn--primary" id="addProjectBtn">+ Новый проект</button>
+      </div>
+      <div class="loading" id="projectsLoading">Загрузка…</div>
+      <div class="table-wrap" id="projectsWrap" hidden>
+        <table>
+          <thead>
+            <tr><th>Название</th><th>Клиент</th><th>Адрес</th><th>Статус</th><th>Прогресс</th><th></th></tr>
+          </thead>
+          <tbody id="projectsTable"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="projectsEmpty" hidden>Проектов пока нет.</div>
+
+      <!-- Детали проекта -->
+      <div id="projectDetail" hidden>
+        <button class="btn btn--link" id="backToProjects">← К списку проектов</button>
+        <div class="card project-head">
+          <h3 id="pdTitle"></h3>
+          <p class="muted" id="pdMeta"></p>
+        </div>
+
+        <div class="panel-head">
+          <h3>Этапы</h3>
+          <button class="btn" id="addStageBtn">+ Этап</button>
+        </div>
+        <div id="adminStages"></div>
+
+        <div class="panel-head">
+          <h3>Платежи</h3>
+          <button class="btn" id="addPaymentBtn">+ Платёж</button>
+        </div>
+        <div class="table-wrap" id="paymentsWrap">
+          <table>
+            <thead><tr><th>Дата</th><th>Назначение</th><th>Сумма</th><th>Статус</th><th></th></tr></thead>
+            <tbody id="paymentsTable"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="paymentsEmpty" hidden>Платежей нет.</div>
+      </div>
+    </section>
+
+    <!-- Заявки -->
+    <section class="tab-panel" id="panel-leads" hidden>
+      <h2>Заявки с калькулятора</h2>
+      <div class="loading" id="leadsLoading">Загрузка…</div>
+      <div class="table-wrap" id="leadsWrap" hidden>
+        <table>
+          <thead>
+            <tr><th>Дата</th><th>Имя</th><th>Телефон</th><th>Email</th><th>Вилка цены</th><th>Срок</th><th></th></tr>
+          </thead>
+          <tbody id="leadsTable"></tbody>
+        </table>
+      </div>
+      <div class="empty" id="leadsEmpty" hidden>Заявок пока нет.</div>
+    </section>
+
+    <!-- Калькулятор -->
+    <section class="tab-panel" id="panel-calc" hidden>
+      <div class="panel-head">
+        <h2>Коэффициенты калькулятора</h2>
+      </div>
+      <div class="loading" id="calcLoading">Загрузка…</div>
+      <div class="table-wrap" id="calcWrap" hidden>
+        <table>
+          <thead><tr><th>Ключ</th><th>Название</th><th>Значение</th><th>Ед.</th><th>Активен</th><th></th></tr></thead>
+          <tbody id="calcTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__box card">
+      <div class="modal__head">
+        <h3 id="modalTitle"></h3>
+        <button class="btn btn--link" id="modalClose" aria-label="Закрыть">✕</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
