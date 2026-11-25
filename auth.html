@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход — ДомСтрой</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="index.html">Дом<span>Строй</span></a>
+      <nav class="nav"><a href="index.html">← На главную</a></nav>
+    </div>
+  </header>
+
+  <main class="container container--narrow">
+    <div class="tabs card">
+      <button class="tab active" data-tab="login" type="button">Вход</button>
+      <button class="tab" data-tab="register" type="button">Регистрация</button>
+    </div>
+
+    <!-- Вход -->
+    <form class="card form" id="loginForm" novalidate>
+      <h2>Вход в личный кабинет</h2>
+      <div class="field">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="loginPassword">Пароль</label>
+        <input type="password" id="loginPassword" required minlength="6" autocomplete="current-password">
+      </div>
+      <button class="btn btn--primary" type="submit" id="loginBtn">Войти</button>
+      <p class="form-error" id="loginError" hidden></p>
+    </form>
+
+    <!-- Регистрация -->
+    <form class="card form" id="registerForm" hidden novalidate>
+      <h2>Регистрация</h2>
+      <div class="field">
+        <label for="regName">ФИО</label>
+        <input type="text" id="regName" required minlength="2" maxlength="100" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="regPhone">Телефон</label>
+        <input type="tel" id="regPhone" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="regEmail">Email</label>
+        <input type="email" id="regEmail" required autocomplete="email">
+      </div>
+      <div class="field">
+        <label for="regPassword">Пароль (минимум 6 символов)</label>
+        <input type="password" id="regPassword" required minlength="6" autocomplete="new-password">
+      </div>
+      <button class="btn btn--primary" type="submit" id="regBtn">Зарегистрироваться</button>
+      <p class="form-error" id="regError" hidden></p>
+      <div class="success" id="regSuccess" hidden>
+        Регистрация прошла успешно. Проверьте email для подтверждения (если включено в Supabase) и войдите.
+      </div>
+    </form>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script type="module" src="js/auth.js"></script>
+</body>
+</html>
