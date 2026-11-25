@@ -1,9 +1,10 @@
 {
-  "name": "trueestimation",
+  "name": "domostroy-cabinet",
+  "version": "1.0.0",
   "private": true,
+  "description": "MVP: личный кабинет строительной компании + калькулятор (GitHub Pages + Supabase)",
+  "type": "module",
   "scripts": {
-    "build": "tailwindcss -i input.css -o styles.css --minify",
-    "watch": "tailwindcss -i input.css -o styles.css --watch"
-  },
-  "devDependencies": { "tailwindcss": "^3.4.17" }
+    "config": "node scripts/generate-config.mjs"
+  }
 }
