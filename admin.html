@@ -20,14 +20,13 @@
   <main class="container">
     <div class="page-head">
       <h1>Админ-панель</h1>
-      <p class="muted">Управление проектами, этапами, фото, платежами, заявками и калькулятором.</p>
+      <p class="muted">Управление проектами, этапами, фото, платежами и заявками.</p>
     </div>
 
     <div class="tabs card">
       <button class="tab active" data-tab="stats" type="button">Статистика</button>
       <button class="tab" data-tab="projects" type="button">Проекты</button>
       <button class="tab" data-tab="leads" type="button">Заявки</button>
-      <button class="tab" data-tab="calc" type="button">Калькулятор</button>
     </div>
 
     <!-- Статистика -->
@@ -87,31 +86,17 @@
 
     <!-- Заявки -->
     <section class="tab-panel" id="panel-leads" hidden>
-      <h2>Заявки с калькулятора</h2>
+      <h2>Заявки с сайта</h2>
       <div class="loading" id="leadsLoading">Загрузка…</div>
       <div class="table-wrap" id="leadsWrap" hidden>
         <table>
           <thead>
-            <tr><th>Дата</th><th>Имя</th><th>Телефон</th><th>Email</th><th>Вилка цены</th><th>Срок</th><th></th></tr>
+            <tr><th>Дата</th><th>Имя</th><th>Телефон</th><th>Email</th><th>Комментарий</th><th></th></tr>
           </thead>
           <tbody id="leadsTable"></tbody>
         </table>
       </div>
       <div class="empty" id="leadsEmpty" hidden>Заявок пока нет.</div>
-    </section>
-
-    <!-- Калькулятор -->
-    <section class="tab-panel" id="panel-calc" hidden>
-      <div class="panel-head">
-        <h2>Коэффициенты калькулятора</h2>
-      </div>
-      <div class="loading" id="calcLoading">Загрузка…</div>
-      <div class="table-wrap" id="calcWrap" hidden>
-        <table>
-          <thead><tr><th>Ключ</th><th>Название</th><th>Значение</th><th>Ед.</th><th>Активен</th><th></th></tr></thead>
-          <tbody id="calcTable"></tbody>
-        </table>
-      </div>
     </section>
   </main>
 
