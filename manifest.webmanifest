@@ -1,0 +1,10 @@
+{
+  "name": "ДомСтрой — личный кабинет",
+  "short_name": "ДомСтрой",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f5f6f8",
+  "theme_color": "#d97706",
+  "lang": "ru",
+  "icons": []
+}
