@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ДомСтрой — строительство частных домов</title>
-  <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +11,8 @@
     <div class="container header__inner">
       <a class="logo" href="index.html">Дом<span>Строй</span></a>
       <nav class="nav" id="nav">
-        <a href="#calculator">Калькулятор</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Оставить заявку</a>
         <a href="auth.html" data-guest-only>Войти</a>
         <a href="cabinet.html" data-auth-only>Личный кабинет</a>
         <a href="admin.html" data-admin-only>Админ-панель</a>
@@ -26,115 +26,57 @@
     <div class="container">
       <h1>Строим частные дома под ключ</h1>
       <p>Фиксированные этапы, фотоотчёты и прозрачные платежи в личном кабинете.</p>
-      <a class="btn btn--primary" href="#calculator">Рассчитать стоимость</a>
+      <a class="btn btn--primary" href="#contact">Оставить заявку</a>
     </div>
   </section>
 
-  <section class="section" id="calculator">
+  <section class="section" id="services">
     <div class="container">
-      <h2 class="section__title">Калькулятор стоимости дома</h2>
-
-      <div class="calc" id="calcApp">
-        <form class="calc__form card" id="calcForm" novalidate>
-          <div class="field">
-            <label for="foundation">Тип фундамента</label>
-            <select id="foundation" required>
-              <option value="foundation_slab">Плита</option>
-              <option value="foundation_strip" selected>Лента</option>
-              <option value="foundation_pile">Свайный</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="wall">Материал стен</label>
-            <select id="wall" required>
-              <option value="wall_brick">Кирпич</option>
-              <option value="wall_gas" selected>Газобетон</option>
-              <option value="wall_wood">Дерево (брус)</option>
-              <option value="wall_sip">СИП-панели</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="area">Площадь дома, м²</label>
-            <input type="number" id="area" min="30" max="1000" step="1" value="100" required>
-          </div>
-
-          <div class="field">
-            <label for="floors">Этажность</label>
-            <select id="floors" required>
-              <option value="1" selected>1 этаж</option>
-              <option value="2">2 этажа</option>
-              <option value="3">3 этажа</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="roof">Кровля</label>
-            <select id="roof" required>
-              <option value="roof_metal" selected>Металлочерепица</option>
-              <option value="roof_soft">Мягкая кровля</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="finish">Отделка</label>
-            <select id="finish" required>
-              <option value="finish_econom">Эконом</option>
-              <option value="finish_standard" selected>Стандарт</option>
-              <option value="finish_premium">Премиум</option>
-            </select>
-          </div>
-
-          <fieldset class="field field--full">
-            <legend>Дополнительные опции</legend>
-            <label class="checkbox"><input type="checkbox" id="opt_garage"> Гараж</label>
-            <label class="checkbox"><input type="checkbox" id="opt_terrace"> Терраса</label>
-            <label class="checkbox"><input type="checkbox" id="opt_porch"> Крыльцо</label>
-          </fieldset>
-
-          <button class="btn btn--primary field--full" type="submit" id="calcBtn">Рассчитать</button>
-          <p class="form-error field--full" id="calcError" hidden></p>
-        </form>
-
-        <div class="calc__result card" id="calcResult" hidden>
-          <h3>Предварительный расчёт</h3>
-          <div class="price-range">
-            <span id="priceMin">—</span> — <span id="priceMax">—</span>
-          </div>
-          <p class="muted">Срок строительства: <strong id="priceDays">—</strong></p>
-          <p class="muted muted--small">Расчёт предварительный. Точную смету подготовит инженер после замера участка.</p>
-
-          <form id="leadForm" class="lead-form" novalidate>
-            <h4>Оставить заявку</h4>
-            <div class="field">
-              <label for="leadName">Имя *</label>
-              <input type="text" id="leadName" required minlength="2" maxlength="100">
-            </div>
-            <div class="field">
-              <label for="leadPhone">Телефон *</label>
-              <input type="tel" id="leadPhone" required placeholder="+7 (___) ___-__-__">
-            </div>
-            <div class="field">
-              <label for="leadEmail">Email *</label>
-              <input type="email" id="leadEmail" required>
-            </div>
-            <div class="field">
-              <label for="leadComment">Комментарий</label>
-              <textarea id="leadComment" rows="3" maxlength="1000"></textarea>
-            </div>
-            <button class="btn btn--primary" type="submit" id="leadBtn">Отправить заявку</button>
-            <p class="form-error" id="leadError" hidden></p>
-            <div class="success" id="leadSuccess" hidden>
-              Заявка отправлена. Менеджер свяжется с вами в ближайшее время.
-            </div>
-          </form>
+      <h2 class="section__title">Наши услуги</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Строительство под ключ</h3>
+          <p class="muted">Дома из кирпича, газобетона, бруса и СИП-панелей. Договор с фиксированными этапами и сроками.</p>
+        </div>
+        <div class="card">
+          <h3>Проект и смета</h3>
+          <p class="muted">Подготовим проект дома и детальную смету после бесплатного замера участка.</p>
+        </div>
+        <div class="card">
+          <h3>Сопровождение</h3>
+          <p class="muted">Фотоотчёты по каждому этапу и история платежей — в вашем личном кабинете.</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="empty" id="calcEmpty" hidden>
-        Калькулятор временно недоступен — не удалось загрузить коэффициенты.
-      </div>
+  <section class="section" id="contact">
+    <div class="container container--narrow">
+      <h2 class="section__title">Оставить заявку</h2>
+      <form id="leadForm" class="card form" novalidate>
+        <div class="field">
+          <label for="leadName">Имя *</label>
+          <input type="text" id="leadName" required minlength="2" maxlength="100">
+        </div>
+        <div class="field">
+          <label for="leadPhone">Телефон *</label>
+          <input type="tel" id="leadPhone" required placeholder="+7 (___) ___-__-__">
+        </div>
+        <div class="field">
+          <label for="leadEmail">Email *</label>
+          <input type="email" id="leadEmail" required>
+        </div>
+        <div class="field">
+          <label for="leadComment">Комментарий</label>
+          <textarea id="leadComment" rows="4" maxlength="1000"
+            placeholder="Например: дом из газобетона ~120 м², участок в СНТ «Ромашка»"></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit" id="leadBtn">Отправить заявку</button>
+        <p class="form-error" id="leadError" hidden></p>
+        <div class="success" id="leadSuccess" hidden>
+          Заявка отправлена. Менеджер свяжется с вами в ближайшее время.
+        </div>
+      </form>
     </div>
   </section>
 
